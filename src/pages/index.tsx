@@ -1,50 +1,49 @@
-import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/Global/Layout"
-import { motion } from "framer-motion"
-import EcoFriendlyScreen from "../components/organ/EcoFriendlyScreen"
-import TopKnotchScreen from "../components/organ/TopKnotchScreen"
-import HatKeScreen from "../components/organ/HatKeScreen"
-import ElectronicsScreen from "../components/organ/ElectronicsScreen"
-import HomeDecorScreen from "../components/organ/HomeDecorScreen"
-import PortableScreen from "../components/organ/PortableScreen"
-import FirstScreen from "../components/organ/FirstScreen"
-import ProductOfTheWeek from "../components/organ/ProductOfTheWeek"
+import UpdateScreen from "../components/organ/UpdateScreen"
+import React from "react"
+import LeftScreen from "../components/organ/LeftScreen"
+import RightScreen from "../components/organ/RightScreen"
+import AllCoinScreen from "../components/organ/AllCoinScreen"
+import { AiOutlineStock } from "react-icons/ai"
+// import CoinCompareChart from "../components/atom/CoinCompareChart"
 
-const IndexPage = () => {
+function index() {
   const data = useStaticQuery(query)
 
   return (
-    <Layout seo={data.strapiGlobal.seo}>
-      <motion.div
-        exit={{ opacity: 0 }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <FirstScreen />
-        <hr className="border-2"></hr>
-        <EcoFriendlyScreen />
-        <hr className="border-2"></hr>
-        <ElectronicsScreen />
-        <hr className="border-2"></hr>
-        <HomeDecorScreen />
-        <hr className="border-2"></hr>
-        <PortableScreen />
-        <hr className="border-2"></hr>
-        <HatKeScreen />
-        <hr className="border-2"></hr>
-        <TopKnotchScreen />
-        <hr className="border-2"></hr>
-        <ProductOfTheWeek />
-      </motion.div>
+    <Layout seo={data.strapiCoinGlobal.seo}>
+      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-7 xl:grid-cols-7 2xl:grid-cols-7 gap-8 p-2 -mt-8">
+        <div className="lg:col-start-1 lg:col-end-3 xl:col-start-1 xl:col-end-3 2xl:col-start-1 2xl:col-end-3">
+          <LeftScreen />
+        </div>
+        <div className="lg:col-start-3 lg:col-end-6 xl:col-start-3 xl:col-end-6 2xl:col-start-3 2xl:col-end-6 -mt-4">
+          <div className="flex flex-row justify-center">
+            <h1 className="mb-6 font-bold text-gray-400 mr-1">
+              Daily Updates on Coins
+            </h1>
+            <div className="text-green-500 mt-1 text-lg">
+              <AiOutlineStock />
+            </div>
+          </div>
+          <UpdateScreen />
+        </div>
+        <div className="lg:col-start-6 lg:col-end-8 xl:col-start-6 xl:col-end-8 2xl:col-start-6 2xl:col-end-8">
+          <RightScreen />
+        </div>
+      </div>
+      <div className="my-10">
+        <AllCoinScreen />
+      </div>
     </Layout>
   )
 }
 
+export default index
+
 const query = graphql`
   query {
-    strapiGlobal {
+    strapiCoinGlobal {
       defaultSeo {
         metaTitle
         metaDescription
@@ -55,5 +54,3 @@ const query = graphql`
     }
   }
 `
-
-export default IndexPage

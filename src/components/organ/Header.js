@@ -3,23 +3,17 @@ import React from "react"
 import "../../assets/styles/index.scss"
 import { DarkModeSwitch } from "react-toggle-dark-mode"
 import { ThemeToggler } from "gatsby-plugin-dark-mode"
-import GoodsUmpireIcon from "../atom/GoodsUmpireIcon"
 import TopHeadline from "../atom/topheadline"
-import { ToogleMenu } from "../atom/ToogleMenu/ToogleMenu"
-// import { motion } from "framer-motion"
+import CryptoIcon from "../atom/CryptoIcon"
+// import { ToogleMenu } from "../atom/ToogleMenu/ToogleMenu"
 
 function Header() {
   return (
-    <div className="">
+    <div className="fixed top-0">
       <TopHeadline />
       <div className="">
-        <div>
-          <ToogleMenu />
-        </div>
-        <div className="flex flex-row justify-center">
-          <GoodsUmpireIcon />
-        </div>
-        <div className="fixed top-6 right-3 z-50 lg:top-10 xl:top-11 xxl:top-12">
+        <div>{/* <ToogleMenu /> */}</div>
+        <div className="fixed top-11 right-3 z-50 lg:top-10 xl:top-11 xxl:top-12">
           <ThemeToggler>
             {({ theme, toggleTheme }) => (
               <div>
@@ -36,6 +30,9 @@ function Header() {
             )}
           </ThemeToggler>
         </div>
+        <div className="">
+          <CryptoIcon />
+        </div>
       </div>
     </div>
   )
@@ -50,18 +47,3 @@ Header.defaultProps = {
 }
 
 export default Header
-
-// const HatKeProductsQuery = graphql`
-//   {
-//     allStrapiCategory(filter: { name: { eq: "Hat Ke Products" } }) {
-//       edges {
-//         node {
-//           products {
-//             name
-//             uid
-//           }
-//         }
-//       }
-//     }
-//   }
-// `

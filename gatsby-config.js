@@ -32,9 +32,14 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: "https://goodsumpiredb.herokuapp.com",
-        collectionTypes: [`product`, `category`],
-        singleTypes: [`global`, `homepage`],
+        apiURL: "https://nikitaartsgallery.herokuapp.com",
+        collectionTypes: [
+          `about-coin`,
+          `coin-category`,
+          `coin-invest-step`,
+          `coin-updates`,
+        ],
+        singleTypes: [`coin-global`, `coin-homepage`],
         queryLimit: 2000,
       },
     },

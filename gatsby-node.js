@@ -10,8 +10,40 @@ exports.createResolvers = ({
   const { createNode } = actions
 
   createResolvers({
-    StrapiProduct: {
-      image1_Child: {
+    StrapiAboutCoin: {
+      AboutCoinImage: {
+        type: `File`,
+        resolve(source, args, context, info) {
+          return createRemoteFileNode({
+            url: `${source.image.url}`,
+            store,
+            cache,
+            createNode,
+            createNodeId,
+          })
+        },
+      },
+    },
+  })
+  createResolvers({
+    StrapiCoinUpdates: {
+      UpdateImage: {
+        type: `File`,
+        resolve(source, args, context, info) {
+          return createRemoteFileNode({
+            url: `${source.image.url}`,
+            store,
+            cache,
+            createNode,
+            createNodeId,
+          })
+        },
+      },
+    },
+  })
+  createResolvers({
+    StrapiCoinInvestStep: {
+      Image1: {
         type: `File`,
         resolve(source, args, context, info) {
           return createRemoteFileNode({
@@ -26,8 +58,8 @@ exports.createResolvers = ({
     },
   })
   createResolvers({
-    StrapiProduct: {
-      image2_Child: {
+    StrapiCoinInvestStep: {
+      Image2: {
         type: `File`,
         resolve(source, args, context, info) {
           return createRemoteFileNode({
@@ -42,12 +74,12 @@ exports.createResolvers = ({
     },
   })
   createResolvers({
-    StrapiProduct: {
-      image3_Child: {
+    StrapiCoinInvestStep: {
+      Image3: {
         type: `File`,
         resolve(source, args, context, info) {
           return createRemoteFileNode({
-            url: `${source.image3.url}`,
+            url: `${source.image31.url}`,
             store,
             cache,
             createNode,
@@ -58,12 +90,28 @@ exports.createResolvers = ({
     },
   })
   createResolvers({
-    StrapiProduct: {
-      AO_image_Child: {
+    StrapiCoinInvestStep: {
+      Image4: {
         type: `File`,
         resolve(source, args, context, info) {
           return createRemoteFileNode({
-            url: `${source.AO_Image.url}`,
+            url: `${source.image4.url}`,
+            store,
+            cache,
+            createNode,
+            createNodeId,
+          })
+        },
+      },
+    },
+  })
+  createResolvers({
+    StrapiCoinInvestStep: {
+      Image5: {
+        type: `File`,
+        resolve(source, args, context, info) {
+          return createRemoteFileNode({
+            url: `${source.image5.url}`,
             store,
             cache,
             createNode,
@@ -81,7 +129,15 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(
     `
       {
-        products: allStrapiProduct {
+        coins: allStrapiAboutCoin {
+          edges {
+            node {
+              id
+              uid
+            }
+          }
+        }
+        steps: allStrapiCoinInvestStep {
           edges {
             node {
               id
@@ -97,16 +153,27 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors
   }
 
-  const products = result.data.products.edges
+  const coins = result.data.coins.edges
+  const steps = result.data.steps.edges
 
-  const ProductTemplate = require.resolve("./src/templates/productTemplate.tsx")
+  const CoinTemplate = require.resolve("./src/templates/coinTemplate.tsx")
+  const StepTemplate = require.resolve("./src/templates/stepTemplate.tsx")
 
-  products.forEach((product, index) => {
+  coins.forEach((coin, index) => {
     createPage({
-      path: `/products/${slugify(product.node.uid)}`,
-      component: ProductTemplate,
+      path: `/coins/${slugify(coin.node.uid)}`,
+      component: CoinTemplate,
       context: {
-        productuid: product.node.uid,
+        coinuid: coin.node.uid,
+      },
+    })
+  })
+  steps.forEach((step, index) => {
+    createPage({
+      path: `/steps/${slugify(step.node.uid)}`,
+      component: StepTemplate,
+      context: {
+        stepuid: step.node.uid,
       },
     })
   })

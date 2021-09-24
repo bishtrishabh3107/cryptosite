@@ -2,69 +2,52 @@ import React from "react"
 import { FaFacebook, FaInstagram } from "react-icons/fa"
 import { SiGmail } from "react-icons/si"
 import "../../assets/styles/index.scss"
-import GoodsUmpireIcon from "../atom/GoodsUmpireIcon"
+import CryptoIcon from "../atom/CryptoIcon"
 import { Link } from "gatsby"
-import AnchorLink from "react-anchor-link-smooth-scroll"
 
 function Footer() {
   return (
-    <footer className="footer bg-gray-900 relative pt-2 border-b-2 border-blue-700 pt-5">
+    <footer className="footer relative border-b-2 border-blue-700 pt-4">
       <div className="md:px-4 lg:px-4 xl:py-8 xxl:py-10">
         <div className="flex flex-row justify-center">
-          <GoodsUmpireIcon />
+          <CryptoIcon />
         </div>
         <div className="my-8 md:mx-6 lg:mx-8 xl:mx-10 xxl:mx-12">
           <div className="justify-between flex flex-col md:flex-row lg:flex-row xl:flex-row xxl:flex-row justify-between">
             <div className="flex flex-col">
-              <span className="text-xl lg:text-2xl xl:text-3xl xxl:4xl font-bold text-gray-600 uppercase mb-2">
-                Hello Mate!
+              <span className="text-lg lg:text-xl xl:text-2xl xxl:4xl font-bold text-gray-600 uppercase mb-2">
+                Hello CRYPTO LOVERS!
               </span>
               <span className="my-2">
                 <Link
                   to="/"
-                  className="text-blue-700 text-md lg:text-xl xl:text-2xl xxl:3xl hover:text-blue-500"
+                  className="font-semibold text-blue-700 text-sm lg:text-md xl:text-lg 2xl:xl hover:text-blue-500 uppercase"
                 >
-                  Home
+                  HOME
                 </Link>
               </span>
               <span className="my-2">
-                <div className="cursor-pointer text-blue-700 text-md lg:text-xl xl:text-2xl xxl:3xl hover:text-blue-500">
-                  <AnchorLink id="MonthsSpecial">Month's Special</AnchorLink>
+                <div className="font-semibold cursor-pointer text-blue-700 text-sm lg:text-md xl:text-lg 2xl:xl hover:text-blue-500 uppercase">
+                  <Link to="/earnlearn">LEARN BASIC CRYPTO</Link>
                 </div>
               </span>
               <span className="my-2">
-                <div className="cursor-pointer text-blue-700 text-md lg:text-xl xl:text-2xl xxl:3xl hover:text-blue-500">
-                  <AnchorLink id="EcoFriendly">Eco Friendly</AnchorLink>
+                <div className="font-semibold cursor-pointer text-blue-700 text-sm lg:text-md xl:text-lg 2xl:xl hover:text-blue-500 uppercase">
+                  <Link to="/earnlearn">
+                    EARNING METHODS USING CRYPTO COINS
+                  </Link>
+                </div>
+              </span>
+              <span className="my-2">
+                <div className="font-semibold cursor-pointer text-blue-700 text-sm lg:text-md xl:text-lg 2xl:xl hover:text-blue-500 uppercase">
+                  <Link to="/allcoins/">ALL COINS</Link>
                 </div>
               </span>
             </div>
-            <div className="flex flex-col">
-              <span className="font-bold text-gray-600 uppercase mt-4 text-lg lg:text-xl xl:text-2xl xxl:3xl mb-2 ">
-                Popular Products
-              </span>
-              <span className="my-2">
-                <div className="cursor-pointer text-blue-700 text-md lg:text-xl xl:text-2xl xxl:3xl hover:text-blue-500">
-                  <AnchorLink href="#HatKeProducts">Hat Ke Products</AnchorLink>
-                </div>
-              </span>
-              <span className="my-2">
-                <div className="text-blue-700 text-md lg:text-xl xl:text-2xl xxl:3xl hover:text-blue-500">
-                  <AnchorLink href="#TopKnotchProducts">
-                    Top Knotch Quality
-                  </AnchorLink>
-                </div>
-              </span>
-              <span className="my-2">
-                <div className="text-blue-700 text-md lg:text-xl xl:text-2xl xxl:3xl hover:text-blue-500">
-                  <AnchorLink href="#PortableProducts">
-                    Portable Products
-                  </AnchorLink>
-                </div>
-              </span>
-            </div>
+
             <div className="flex flex-col content-center items-center">
               <span className="font-bold text-gray-600 uppercase mt-4 mb-2 text-lg lg:text-xl xl:text-2xl xxl:3xl">
-                Social Media
+                SOCIAL MEDIA
               </span>
               <span className="my-2">
                 <a
@@ -101,7 +84,7 @@ function Footer() {
         <div className="mt-16 border-t-2 border-gray-300 flex flex-col items-center">
           <div className="text-center py-6">
             <p className="text-sm text-blue-700 font-bold mb-2">
-              © 2021 by GOODS UMPIRE
+              © 2021 by INDIANCOINHUSTLERS
             </p>
           </div>
         </div>

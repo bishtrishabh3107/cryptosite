@@ -8,22 +8,34 @@ body {
   }
 }
 body {
-  --bg: #fff;
+  --bg: #f3f4f6;
   --primaryText: #000;
   --secondaryText: #777;
   background-color: var(--bg);
   h1 {
     color: var(--primaryText);
   }
+  .card {
+    color: var(--bg);
+  }
+  .topheadline {
+    background-color: #f3f4f6;
+  }
 }
 body.dark {
   -webkit-font-smoothing: antialiased;
-  --bg: #222831;
+  --bg: #111827;
   --primaryText: #e8e8e8;
-  --secondaryText: #9d9d9d;
+  --secondaryText: #e5e7eb;
   background-color: var(--bg);
   h1 {
     color: var(--primaryText);
+  }
+  .card {
+    background-color: #1f2937;
+  }
+  .topheadline {
+    background-color: #1f2937;
   }
 }
 
@@ -48,4 +60,17 @@ body.dark {
 
 .top-headline {
   font-size: 9px;
+}
+
+.card-headline {
+  font-size: 9px;
+}
+
+.cardDetail-headline {
+  font-size: 10px;
+}
+
+.site-headline {
+  font-family: $SITE-Headline;
+  letter-spacing: 2px;
 }
